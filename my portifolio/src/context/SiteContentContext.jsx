@@ -82,6 +82,19 @@ const defaultContent = {
       { label: 'Projects', path: '/projects' },
       { label: 'Contact', path: '/contact' }
     ]
+  },
+  seoSettings: {
+    site_name: 'Sunday Daniel Aniedeh Portfolio',
+    domain_url: 'https://yourdomain.com',
+    default_title: 'Sunday Daniel Aniedeh - Full Stack Developer',
+    default_description: 'Professional portfolio of Sunday Daniel Aniedeh. Expert in React, Node.js, Django and modern web development.',
+    default_keywords: 'Sunday Daniel Aniedeh, Full Stack Developer, React Developer, Node.js, Web Development',
+    author_name: 'Sunday Daniel Aniedeh',
+    og_image_url: '/og-image.jpg',
+    twitter_handle: '@yourusername',
+    google_analytics_id: '',
+    google_site_verification: '',
+    theme_color: '#000000'
   }
 };
 
@@ -107,9 +120,6 @@ export function SiteContentProvider({ children }) {
 
   async function fetchAllContent() {
     try {
-      // Add timestamp to prevent caching
-      const timestamp = new Date().getTime();
-      
       const [homeRes, aboutRes, projectsRes, contactRes, navbarRes] = await Promise.all([
         supabase.from('home_content').select('*').single(),
         supabase.from('about_content').select('*').single(),
@@ -118,15 +128,15 @@ export function SiteContentProvider({ children }) {
         supabase.from('navbar_content').select('*').single()
       ]);
 
-      console.log('Fetched content at:', new Date().toLocaleTimeString());
-      console.log('Home data:', homeRes.data);
+      const seoRes = await supabase.from('seo_settings').select('*').single();
 
       setContent({
         home: homeRes.data || defaultContent.home,
         about: aboutRes.data || defaultContent.about,
         projects: projectsRes.data || defaultContent.projects,
         contact: contactRes.data || defaultContent.contact,
-        navbar: navbarRes.data || defaultContent.navbar
+        navbar: navbarRes.data || defaultContent.navbar,
+        seoSettings: seoRes.data || defaultContent.seoSettings
       });
     } catch (error) {
       console.log('Using default content:', error.message);

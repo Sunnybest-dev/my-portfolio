@@ -7,6 +7,7 @@ import AdminEditHome from '../component/admin/AdminEditHome';
 import AdminEditAbout from '../component/admin/AdminEditAbout';
 import AdminEditProjects from '../component/admin/AdminEditProjects';
 import AdminEditContact from '../component/admin/AdminEditContact';
+import AdminEditSEO from '../component/admin/AdminEditSEO';
 
 const SECTIONS = [
   { id: 'site', label: 'Site & Nav' },
@@ -14,6 +15,7 @@ const SECTIONS = [
   { id: 'about', label: 'About' },
   { id: 'projects', label: 'Projects' },
   { id: 'contact', label: 'Contact' },
+  { id: 'seo', label: 'SEO & Domain' },
 ];
 
 export default function Admin() {
@@ -76,6 +78,7 @@ export default function Admin() {
         {section === 'about' && <AdminEditAbout />}
         {section === 'projects' && <AdminEditProjects />}
         {section === 'contact' && <AdminEditContact />}
+        {section === 'seo' && <AdminEditSEO />}
       </main>
     </div>
   );

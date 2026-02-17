@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../src/supabaseClient';
+import AdminEditSEO from '../component/admin/AdminEditSEO';
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('home');
@@ -21,6 +22,13 @@ export default function AdminDashboard() {
 
   async function fetchContent() {
     setLoading(true);
+    
+    // Skip fetching for SEO tab as it has its own component
+    if (activeTab === 'seo') {
+      setLoading(false);
+      return;
+    }
+    
     const tables = {
       home: 'home_content',
       about: 'about_content',
@@ -99,7 +107,7 @@ export default function AdminDashboard() {
 
       <div className="flex">
         <aside className="w-64 bg-zinc-900 min-h-screen p-6">
-          {['home', 'about', 'projects', 'contact', 'navbar', 'resume'].map(tab => (
+          {['home', 'about', 'projects', 'contact', 'navbar', 'resume', 'seo'].map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -107,12 +115,15 @@ export default function AdminDashboard() {
                 activeTab === tab ? 'bg-yellow-600' : 'hover:bg-zinc-800'
               }`}
             >
-              {tab}
+              {tab === 'seo' ? 'SEO & Domain' : tab}
             </button>
           ))}
         </aside>
 
         <main className="flex-1 p-8">
+          {activeTab === 'seo' ? (
+            <AdminEditSEO />
+          ) : (
           <div className="max-w-4xl">
             <h2 className="text-3xl font-bold mb-8 capitalize">{activeTab} Content</h2>
             
@@ -595,6 +606,7 @@ export default function AdminDashboard() {
               {saving ? 'Saving...' : 'Save Changes'}
             </button>
           </div>
+          )}
         </main>
       </div>
     </div>

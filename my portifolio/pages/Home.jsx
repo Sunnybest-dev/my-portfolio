@@ -26,11 +26,18 @@ export default function Home() {
   return (
     <>
       <SEO 
-        title="Sunday Daniel Aniedeh - Full Stack Developer"
-        description="Professional portfolio showcasing expertise in React, Node.js, JavaScript, Django and modern web development. View projects, skills, and experience."
-        keywords="Sunday Daniel Aniedeh, Full Stack Developer, React Developer, Node.js, JavaScript, TypeScript, Web Development, Software Engineer, Portfolio"
+        title="Sunday Daniel Aniedeh - Full Stack Developer & Software Engineer | React, Node.js Expert"
+        description="Sunday Daniel Aniedeh is a professional Full Stack Developer and Software Engineer specializing in React, Node.js, JavaScript, TypeScript, Python, and Django. Based in Nigeria, Sunday builds scalable web applications and innovative digital solutions. Available for freelance projects and full-time opportunities."
+        keywords="Sunday Daniel Aniedeh, Sunday Aniedeh, Daniel Aniedeh, Full Stack Developer Nigeria, React Developer Nigeria, Node.js Developer, JavaScript Expert, TypeScript Developer, Python Developer, Django Developer, Software Engineer Nigeria, Web Developer Nigeria, Frontend Developer, Backend Developer, Freelance Developer Nigeria, Hire Developer Nigeria, Sunday Daniel Aniedeh Portfolio, Sunday Daniel Aniedeh Projects, Sunday Daniel Aniedeh GitHub, Sunday Daniel Aniedeh LinkedIn"
       />
       <section className="bg-black text-white min-h-screen px-6 py-32">
+      {/* Hidden SEO Content for Search Engines */}
+      <div className="sr-only">
+        <h1>Sunday Daniel Aniedeh - Full Stack Developer and Software Engineer</h1>
+        <p>Sunday Daniel Aniedeh is a highly skilled Full Stack Developer based in Nigeria, specializing in React, Node.js, JavaScript, TypeScript, Python, and Django development.</p>
+        <p>Sunday Aniedeh builds modern web applications, scalable software solutions, and innovative digital products for clients worldwide.</p>
+        <p>Contact Sunday Daniel Aniedeh for web development projects, software engineering consulting, and freelance opportunities.</p>
+      </div>
       <div className="max-w-6xl mx-auto">
         {/* Hero Section */}
         <div className="relative min-h-[70vh] flex items-center justify-center mb-32">
