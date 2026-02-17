@@ -28,9 +28,9 @@ export default function SEO({
   };
 
   // Use database settings as defaults if not provided
-  const finalTitle = title || seoSettings?.default_title || 'Sunday Daniel Aniedeh - Full Stack Developer & Software Engineer';
-  const finalDescription = description || seoSettings?.default_description || 'Professional portfolio of Sunday Daniel Aniedeh. Expert in React, Node.js, Django and modern web development.';
-  const finalKeywords = keywords || seoSettings?.default_keywords || 'Sunday Daniel Aniedeh, Full Stack Developer, React Developer, Node.js, Web Development';
+  const finalTitle = title || seoSettings?.default_title || 'Sunday Daniel Aniedeh - Web Developer & Tech Enthusiast';
+  const finalDescription = description || seoSettings?.default_description || 'Portfolio of Sunday Daniel Aniedeh. Passionate about web development, building projects with React, Node.js, and modern technologies.';
+  const finalKeywords = keywords || seoSettings?.default_keywords || 'Sunday Daniel Aniedeh, Web Developer, Tech Enthusiast, React Developer, Node.js, Web Development';
   const finalOgImage = ogImage || seoSettings?.og_image_url || 'https://sunnybest.ulishalimited.com/profile.jpg';
   const finalAuthor = author || seoSettings?.author_name || 'Sunday Daniel Aniedeh';
   const domainUrl = seoSettings?.domain_url || 'https://sunnybest.ulishalimited.com';
