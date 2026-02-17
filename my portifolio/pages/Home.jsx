@@ -30,7 +30,7 @@ export default function Home() {
         description="Sunday Daniel Aniedeh is a professional Full Stack Developer and Software Engineer specializing in React, Node.js, JavaScript, TypeScript, Python, and Django. Based in Nigeria, Sunday builds scalable web applications and innovative digital solutions. Available for freelance projects and full-time opportunities."
         keywords="Sunday Daniel Aniedeh, Sunday Aniedeh, Daniel Aniedeh, Full Stack Developer Nigeria, React Developer Nigeria, Node.js Developer, JavaScript Expert, TypeScript Developer, Python Developer, Django Developer, Software Engineer Nigeria, Web Developer Nigeria, Frontend Developer, Backend Developer, Freelance Developer Nigeria, Hire Developer Nigeria, Sunday Daniel Aniedeh Portfolio, Sunday Daniel Aniedeh Projects, Sunday Daniel Aniedeh GitHub, Sunday Daniel Aniedeh LinkedIn"
       />
-      <section className="bg-black text-white min-h-screen px-6 py-32">
+      <section className="bg-black text-white min-h-screen px-4 sm:px-6 py-20 sm:py-32">
       {/* Hidden SEO Content for Search Engines */}
       <div className="sr-only">
         <h1>Sunday Daniel Aniedeh - Full Stack Developer and Software Engineer</h1>
@@ -40,7 +40,7 @@ export default function Home() {
       </div>
       <div className="max-w-6xl mx-auto">
         {/* Hero Section */}
-        <div className="relative min-h-[70vh] flex items-center justify-center mb-32">
+        <div className="relative min-h-[60vh] sm:min-h-[70vh] flex items-center justify-center mb-20 sm:mb-32">
           <motion.div
             className="absolute inset-0 bg-gradient-to-br from-yellow-600/20 via-purple-600/10 to-transparent rounded-3xl"
             initial={{ opacity: 0 }}
@@ -48,7 +48,7 @@ export default function Home() {
             transition={{ duration: 1.2 }}
           />
           <motion.div
-            className="absolute top-20 left-10 w-72 h-72 bg-yellow-600/30 rounded-full blur-3xl"
+            className="absolute top-10 sm:top-20 left-5 sm:left-10 w-40 h-40 sm:w-72 sm:h-72 bg-yellow-600/30 rounded-full blur-3xl"
             animate={{
               scale: [1, 1.2, 1],
               opacity: [0.3, 0.5, 0.3],
@@ -56,7 +56,7 @@ export default function Home() {
             transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
           />
           <motion.div
-            className="absolute bottom-20 right-10 w-72 h-72 bg-purple-600/30 rounded-full blur-3xl"
+            className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-40 h-40 sm:w-72 sm:h-72 bg-purple-600/30 rounded-full blur-3xl"
             animate={{
               scale: [1.2, 1, 1.2],
               opacity: [0.3, 0.5, 0.3],
@@ -65,15 +65,15 @@ export default function Home() {
           />
 
           <motion.div
-            className="relative z-10 grid md:grid-cols-2 gap-12 items-center w-full"
+            className="relative z-10 grid md:grid-cols-2 gap-8 sm:gap-12 items-center w-full"
             variants={staggerContainer}
             initial="initial"
             animate="animate"
           >
             {/* Text Content */}
-            <div className="text-center md:text-left md:pl-8">
+            <div className="text-center md:text-left md:pl-8 order-2 md:order-1">
               <motion.h1
-                className="text-4xl md:text-5xl font-bold tracking-[0.15em] mb-8 leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-[0.1em] sm:tracking-[0.15em] mb-6 sm:mb-8 leading-tight"
                 variants={staggerItem}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
@@ -81,19 +81,19 @@ export default function Home() {
                 {home.hero_title?.split(' ').slice(2).join(' ')}
               </motion.h1>
               <motion.p
-                className="text-sm tracking-[0.4em] uppercase text-gray-300 mb-12 md:ml-1"
+                className="text-xs sm:text-sm tracking-[0.3em] sm:tracking-[0.4em] uppercase text-gray-300 mb-8 sm:mb-12 md:ml-1"
                 variants={staggerItem}
                 transition={{ duration: 0.5 }}
               >
                 {home.hero_subtitle}
               </motion.p>
               <motion.div
-                className="flex gap-6 justify-center md:justify-start md:ml-1"
+                className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center md:justify-start md:ml-1"
                 variants={staggerItem}
               >
                 <motion.a
                   href={home.cta_primary_href}
-                  className="px-8 py-4 rounded-full bg-yellow-600 hover:bg-yellow-700 transition-colors"
+                  className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-yellow-600 hover:bg-yellow-700 transition-colors text-sm sm:text-base text-center"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -101,7 +101,7 @@ export default function Home() {
                 </motion.a>
                 <motion.a
                   href={home.cta_secondary_href}
-                  className="px-8 py-4 rounded-full border border-yellow-600 hover:bg-yellow-600/10 transition-colors"
+                  className="px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-yellow-600 hover:bg-yellow-600/10 transition-colors text-sm sm:text-base text-center"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -112,11 +112,11 @@ export default function Home() {
 
             {/* Image */}
             <motion.div
-              className="flex justify-center"
+              className="flex justify-center order-1 md:order-2"
               variants={staggerItem}
             >
               <motion.div
-                className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-yellow-600 cursor-pointer"
+                className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-yellow-600 cursor-pointer"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 whileHover={{ scale: 1.08, borderColor: 'rgba(147, 51, 234, 1)' }}
@@ -138,7 +138,7 @@ export default function Home() {
         {/* Stats Section */}
         {stats.length > 0 && (
           <motion.div
-            className="grid md:grid-cols-3 gap-8 mb-32"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-20 sm:mb-32"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, margin: '-80px' }}
@@ -147,13 +147,13 @@ export default function Home() {
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
-                className="bg-zinc-900 rounded-3xl p-8 text-center"
+                className="bg-zinc-900 rounded-3xl p-6 sm:p-8 text-center"
                 variants={staggerItem}
                 whileHover={{ scale: 1.03, y: -4 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 25 }}
               >
-                <h3 className="text-5xl font-bold text-yellow-500 mb-2">{stat.value}</h3>
-                <p className="text-gray-400 uppercase tracking-widest text-sm">{stat.label}</p>
+                <h3 className="text-4xl sm:text-5xl font-bold text-yellow-500 mb-2">{stat.value}</h3>
+                <p className="text-gray-400 uppercase tracking-widest text-xs sm:text-sm">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -167,12 +167,12 @@ export default function Home() {
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-gray-400 leading-relaxed text-lg mb-8">
+          <p className="text-gray-400 leading-relaxed text-base sm:text-lg mb-6 sm:mb-8">
             {home.about_text}
           </p>
           {techStack.length > 0 && (
             <motion.div
-              className="flex flex-wrap gap-4 justify-center"
+              className="flex flex-wrap gap-3 sm:gap-4 justify-center"
               variants={staggerContainer}
               initial="initial"
               whileInView="animate"
@@ -181,7 +181,7 @@ export default function Home() {
               {techStack.map((tech, i) => (
                 <motion.span
                   key={i}
-                  className="px-6 py-3 bg-zinc-900 rounded-full text-sm cursor-default"
+                  className="px-4 sm:px-6 py-2 sm:py-3 bg-zinc-900 rounded-full text-xs sm:text-sm cursor-default"
                   variants={staggerItem}
                   whileHover={{ scale: 1.08, backgroundColor: 'rgba(202, 138, 4, 1)' }}
                   transition={{ type: 'spring', stiffness: 400, damping: 25 }}
