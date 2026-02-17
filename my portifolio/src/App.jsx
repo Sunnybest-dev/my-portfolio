@@ -32,11 +32,23 @@ function App() {
 
   useEffect(() => {
     if (!isAdmin && !isTest) {
-      supabase.from('site_analytics').insert([{
-        page_path: location.pathname,
-        referrer: document.referrer || null,
-        user_agent: navigator.userAgent
-      }]);
+      const trackVisit = async () => {
+        try {
+          const { error } = await supabase.from('site_analytics').insert([{
+            page_path: location.pathname,
+            referrer: document.referrer || null,
+            user_agent: navigator.userAgent
+          }]);
+          
+          if (error) {
+            console.error('Analytics tracking error:', error);
+          }
+        } catch (err) {
+          console.error('Failed to track visit:', err);
+        }
+      };
+      
+      trackVisit();
     }
   }, [location.pathname, isAdmin, isTest]);
 
