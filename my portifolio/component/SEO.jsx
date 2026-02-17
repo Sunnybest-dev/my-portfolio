@@ -33,7 +33,7 @@ export default function SEO({
   const finalKeywords = keywords || seoSettings?.default_keywords || 'Sunday Daniel Aniedeh, Full Stack Developer, React Developer, Node.js, Web Development';
   const finalOgImage = ogImage || seoSettings?.og_image_url || '/og-image.jpg';
   const finalAuthor = author || seoSettings?.author_name || 'Sunday Daniel Aniedeh';
-  const domainUrl = seoSettings?.domain_url || 'https://yourdomain.com';
+  const domainUrl = seoSettings?.domain_url || 'https://sunnybest.ulishalimited.com';
   const siteName = seoSettings?.site_name || 'Sunday Daniel Aniedeh Portfolio';
   const canonicalUrl = `${domainUrl}${location.pathname}`;
 
