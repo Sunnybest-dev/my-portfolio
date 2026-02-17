@@ -55,6 +55,16 @@ export default function SEO({
   useEffect(() => {
     document.title = finalTitle;
     
+    // Update favicon dynamically
+    let favicon = document.querySelector('link[rel="icon"]');
+    if (!favicon) {
+      favicon = document.createElement('link');
+      favicon.setAttribute('rel', 'icon');
+      document.head.appendChild(favicon);
+    }
+    favicon.setAttribute('href', finalOgImage);
+    favicon.setAttribute('type', 'image/jpeg');
+    
     const metaTags = [
       { name: 'description', content: finalDescription },
       { name: 'keywords', content: finalKeywords },
