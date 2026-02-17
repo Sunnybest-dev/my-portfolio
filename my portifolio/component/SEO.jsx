@@ -28,10 +28,10 @@ export default function SEO({
   };
 
   // Use database settings as defaults if not provided
-  const finalTitle = title || seoSettings?.default_title || 'Sunday Daniel Aniedeh - Full Stack Developer';
+  const finalTitle = title || seoSettings?.default_title || 'Sunday Daniel Aniedeh - Full Stack Developer & Software Engineer';
   const finalDescription = description || seoSettings?.default_description || 'Professional portfolio of Sunday Daniel Aniedeh. Expert in React, Node.js, Django and modern web development.';
   const finalKeywords = keywords || seoSettings?.default_keywords || 'Sunday Daniel Aniedeh, Full Stack Developer, React Developer, Node.js, Web Development';
-  const finalOgImage = ogImage || seoSettings?.og_image_url || '/og-image.jpg';
+  const finalOgImage = ogImage || seoSettings?.og_image_url || 'https://sunnybest.ulishalimited.com/profile.jpg';
   const finalAuthor = author || seoSettings?.author_name || 'Sunday Daniel Aniedeh';
   const domainUrl = seoSettings?.domain_url || 'https://sunnybest.ulishalimited.com';
   const siteName = seoSettings?.site_name || 'Sunday Daniel Aniedeh Portfolio';
