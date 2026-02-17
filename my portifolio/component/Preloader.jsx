@@ -52,13 +52,13 @@ export default function Preloader({ onComplete }) {
       exit="exit"
     >
       <motion.span
-        className="text-2xl md:text-3xl font-bold tracking-[0.4em] text-white"
+        className="text-xl sm:text-2xl md:text-3xl font-bold tracking-[0.3em] sm:tracking-[0.4em] text-white text-center px-4"
         variants={textVariants}
       >
         SUNDAY DANIEL ANIEDEH
       </motion.span>
       <motion.div
-        className="mt-4 h-0.5 w-32 bg-yellow-500 origin-left rounded-full"
+        className="mt-4 h-0.5 w-24 sm:w-32 bg-yellow-500 origin-center rounded-full"
         variants={lineVariants}
       />
       <motion.div
