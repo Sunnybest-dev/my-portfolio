@@ -66,9 +66,12 @@ export default function About() {
               {skillsSections.map((section, i) => (
                 <motion.div key={i} className="bg-zinc-900 rounded-3xl p-6 sm:p-8" variants={staggerItem} whileHover={{ backgroundColor: 'rgb(39 39 42)' }}>
                   <h4 className={`text-lg sm:text-xl font-semibold mb-4 ${section.color}`}>{section.title}</h4>
-                  <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
+                  <ul className="space-y-2 text-gray-400 text-sm sm:text-base list-none">
                     {section.skills.map((skill, j) => (
-                      <li key={j}>• {skill}</li>
+                      <li key={j} className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-yellow-500 flex-shrink-0"></span>
+                        <span>{skill}</span>
+                      </li>
                     ))}
                   </ul>
                 </motion.div>
