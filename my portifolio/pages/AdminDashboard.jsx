@@ -90,42 +90,44 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <nav className="bg-zinc-900 border-b border-zinc-800 px-6 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-        <div className="flex gap-4">
-          <button onClick={() => navigate('/admin/messages')} className="px-6 py-2 bg-zinc-800 rounded-full hover:bg-zinc-700">
+      <nav className="bg-zinc-900 border-b border-zinc-800 px-4 sm:px-6 py-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <h1 className="text-xl sm:text-2xl font-bold">Admin Dashboard</h1>
+        <div className="flex flex-wrap gap-2 sm:gap-4">
+          <button onClick={() => navigate('/admin/messages')} className="px-4 sm:px-6 py-2 bg-zinc-800 rounded-full hover:bg-zinc-700 text-sm sm:text-base">
             Messages
           </button>
-          <button onClick={() => navigate('/admin/analytics')} className="px-6 py-2 bg-zinc-800 rounded-full hover:bg-zinc-700">
+          <button onClick={() => navigate('/admin/analytics')} className="px-4 sm:px-6 py-2 bg-zinc-800 rounded-full hover:bg-zinc-700 text-sm sm:text-base">
             Analytics
           </button>
-          <button onClick={handleLogout} className="px-6 py-2 bg-red-600 rounded-full hover:bg-red-700">
+          <button onClick={handleLogout} className="px-4 sm:px-6 py-2 bg-red-600 rounded-full hover:bg-red-700 text-sm sm:text-base">
             Logout
           </button>
         </div>
       </nav>
 
-      <div className="flex">
-        <aside className="w-64 bg-zinc-900 min-h-screen p-6">
+      <div className="flex flex-col lg:flex-row">
+        <aside className="w-full lg:w-64 bg-zinc-900 p-4 sm:p-6 border-b lg:border-b-0 lg:border-r border-zinc-800">
+          <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible">
           {['home', 'about', 'projects', 'contact', 'navbar', 'resume', 'seo'].map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`w-full text-left px-4 py-3 rounded-xl mb-2 capitalize ${
+              className={`whitespace-nowrap lg:w-full text-left px-4 py-3 rounded-xl capitalize ${
                 activeTab === tab ? 'bg-yellow-600' : 'hover:bg-zinc-800'
               }`}
             >
               {tab === 'seo' ? 'SEO & Domain' : tab}
             </button>
           ))}
+          </div>
         </aside>
 
-        <main className="flex-1 p-8">
+        <main className="flex-1 p-4 sm:p-6 lg:p-8">
           {activeTab === 'seo' ? (
             <AdminEditSEO />
           ) : (
           <div className="max-w-4xl">
-            <h2 className="text-3xl font-bold mb-8 capitalize">{activeTab} Content</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 capitalize">{activeTab} Content</h2>
             
             <div className="space-y-6">
               {Object.keys(content).filter(key => !['id', 'updated_at'].includes(key)).map(key => {
@@ -158,10 +160,10 @@ export default function AdminDashboard() {
                   // Stats
                   if (key === 'stats') {
                     return (
-                      <div key={key} className="bg-zinc-900 rounded-xl p-6">
+                      <div key={key} className="bg-zinc-900 rounded-xl p-4 sm:p-6">
                         <label className="block text-sm text-gray-400 mb-4">Stats</label>
                         {value.map((stat, i) => (
-                          <div key={i} className="flex gap-2 mb-3 p-3 bg-black rounded-xl">
+                          <div key={i} className="flex flex-col sm:flex-row gap-2 mb-3 p-3 bg-black rounded-xl">
                             <input
                               placeholder="Value (e.g., 50+)"
                               value={stat.value || ''}
@@ -174,10 +176,10 @@ export default function AdminDashboard() {
                               onChange={(e) => updateArrayItem(key, i, { ...stat, label: e.target.value })}
                               className="flex-1 p-3 bg-zinc-900 rounded-xl border border-zinc-800 outline-none"
                             />
-                            <button onClick={() => removeArrayItem(key, i)} className="px-4 bg-red-600 rounded-xl">×</button>
+                            <button onClick={() => removeArrayItem(key, i)} className="px-4 py-2 sm:py-0 bg-red-600 rounded-xl">×</button>
                           </div>
                         ))}
-                        <button onClick={() => addArrayItem(key, { value: '', label: '' })} className="mt-2 px-4 py-2 bg-green-600 rounded-xl text-sm">
+                        <button onClick={() => addArrayItem(key, { value: '', label: '' })} className="mt-2 px-4 py-2 bg-green-600 rounded-xl text-sm w-full sm:w-auto">
                           + Add Stat
                         </button>
                       </div>
@@ -601,7 +603,7 @@ export default function AdminDashboard() {
             <button
               onClick={handleSave}
               disabled={saving}
-              className="mt-8 px-10 py-4 rounded-full bg-yellow-600 hover:bg-yellow-700 transition font-semibold disabled:opacity-50"
+              className="mt-8 px-10 py-4 rounded-full bg-yellow-600 hover:bg-yellow-700 transition font-semibold disabled:opacity-50 w-full sm:w-auto"
             >
               {saving ? 'Saving...' : 'Save Changes'}
             </button>
