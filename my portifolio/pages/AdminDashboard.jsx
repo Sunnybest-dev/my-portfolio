@@ -585,6 +585,64 @@ export default function AdminDashboard() {
                   );
                 }
                 
+                // Handle image fields (profile_image_url, profile_image_hover_url, profile_image)
+                if (key.includes('image') || key.includes('photo')) {
+                  return (
+                    <div key={key} className="bg-zinc-900 rounded-xl p-6">
+                      <label className="block text-sm text-gray-400 mb-2 capitalize">{key.replace(/_/g, ' ')}</label>
+                      
+                      {/* Current Image Preview */}
+                      {value && (
+                        <div className="mb-4">
+                          <img src={value} alt="Preview" className="w-32 h-32 object-cover rounded-xl border-2 border-yellow-600" />
+                        </div>
+                      )}
+                      
+                      {/* URL Input */}
+                      <input
+                        type="text"
+                        value={value || ''}
+                        onChange={(e) => updateField(key, e.target.value)}
+                        placeholder="Enter image URL or upload file below"
+                        className="w-full p-4 bg-black rounded-xl border border-zinc-800 outline-none mb-3"
+                      />
+                      
+                      {/* File Upload */}
+                      <div className="flex gap-2">
+                        <input
+                          type="file"
+                          accept="image/*"
+                          onChange={async (e) => {
+                            const file = e.target.files?.[0];
+                            if (!file) return;
+                            
+                            const fileExt = file.name.split('.').pop();
+                            const fileName = `${Math.random()}.${fileExt}`;
+                            const filePath = `${fileName}`;
+                            
+                            const { error: uploadError } = await supabase.storage
+                              .from('portfolio-images')
+                              .upload(filePath, file);
+                            
+                            if (uploadError) {
+                              alert('Upload failed: ' + uploadError.message);
+                              return;
+                            }
+                            
+                            const { data } = supabase.storage
+                              .from('portfolio-images')
+                              .getPublicUrl(filePath);
+                            
+                            updateField(key, data.publicUrl);
+                          }}
+                          className="flex-1 p-3 bg-black rounded-xl border border-zinc-800 outline-none text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-yellow-600 file:text-white hover:file:bg-yellow-700"
+                        />
+                      </div>
+                      <p className="text-xs text-gray-500 mt-2">Upload an image or paste a URL above</p>
+                    </div>
+                  );
+                }
+                
                 // Handle regular text fields
                 return (
                   <div key={key}>
