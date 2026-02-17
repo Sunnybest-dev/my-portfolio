@@ -56,14 +56,14 @@ export default function SEO({
     document.title = finalTitle;
     
     // Update favicon dynamically
+    const faviconUrl = finalOgImage || '/profile.jpg';
     let favicon = document.querySelector('link[rel="icon"]');
     if (!favicon) {
       favicon = document.createElement('link');
       favicon.setAttribute('rel', 'icon');
       document.head.appendChild(favicon);
     }
-    favicon.setAttribute('href', finalOgImage);
-    favicon.setAttribute('type', 'image/jpeg');
+    favicon.setAttribute('href', faviconUrl);
     
     const metaTags = [
       { name: 'description', content: finalDescription },
