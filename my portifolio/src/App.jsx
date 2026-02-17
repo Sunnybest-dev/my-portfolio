@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { supabase } from './supabaseClient';
 import Navbar from "../component/Navbar";
@@ -47,6 +47,7 @@ function App() {
           <Preloader key="preloader" onComplete={() => setShowPreloader(false)} />
         ) : isAdmin ? (
           <Routes location={location}>
+            <Route path="/admin" element={<Navigate to="/admin/login" replace />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/admin/messages" element={<AdminMessages />} />
